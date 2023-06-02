@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OTAKU CLUB</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/plyr.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    
+    <!-- Normal Breadcrumb Begin -->
+    <section class="normal-breadcrumb set-bg" data-setbg="395934.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="normal__breadcrumb__text">
+                        <h2>Inscription au club</h2>
+                        <p>Bienvenu sur le formulaire Inscription du Club Otaku d'ESGIS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Normal Breadcrumb End -->
+
+    <!-- Signup Section Begin -->
+    <?php 
+//si on clique sur le lien editer
+    /*if(isset($_REQUEST['id'])){
+        require('connexion.php');
+        $req=sprintf("select * from Kyodai where id ='%d'",
+        $_REQUEST['id']);
+        $result=mysqli_query($link,$req);
+        $row=mysqli_fetch_assoc($result);  
+       // var_dump($row);
+
+    }*/
+?>
+    <section class="signup spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="login__form">
+                        <h3>Inscription</h3>
+                        <form action="" method="POST">
+                            <div class="input__item">
+                                <input type="text" name="firstname" value=" <?php if(isset($_REQUEST['id'])) echo $row['firstname']; ?>" id="Firstname" placeholder="Your Firstname">
+                                <span class="icon_profile"></span>
+                            </div>
+                            <div class="input__item">
+                                <input type="text" name="surname" value="<?php if(isset($_REQUEST['id'])) echo $row['surname']; ?>" id="Surname" placeholder="Your Surname">
+                                <span class="icon_profile"></span>
+                            </div>
+                            <div class="input__item">
+                                <input type="email" name="email" value="<?php if(isset($_REQUEST['id'])) echo $row['email']; ?>" id="Email" placeholder="Email address">
+                                <span class="icon_mail"></span>
+                            </div>
+                            <div class="input__item">
+                                <input type="number" name="number" content="10" value="<?php if(isset($_REQUEST['id'])) echo $row['number']; ?>" id="Number" placeholder="Number">
+                                <span class="icon_phone"></span>
+                            </div>
+                            <div class="input__item">
+                                <input type="text" name="section" value="<?php if(isset($_REQUEST['id'])) echo $row['Section']; ?>" id="section" placeholder="Section">
+                                <span class="icon_group"></span>
+                            </div>
+                            <button type="submit" name="submit" class="site-btn">Valider</button>
+                        </form>
+                     
+                     
+         <?php if(isset($_REQUEST['submit'])){
+            require('connexion.php');  
+            $req=sprintf("INSERT INTO membres values(NULL,'%s','%s','%s','%d','%s')",$_REQUEST['firstname'],
+            $_REQUEST['surname'],$_REQUEST['email'],$_REQUEST['number'],$_REQUEST['section']);
+            $result=mysqli_query($link,$req);
+            //var_dump($_REQUEST);
+        }
+        else{
+           else{//dans le cas d'une mise à jour 
+            $req=sprintf("update personnel set nom='%s', prenoms='%s',genre='%s',tel='%s'
+            where id=%d",
+            $_REQUEST['firstname'],$_REQUEST['surname'],$_REQUEST['email'],
+            $_REQUEST['number'], $_REQUEST['section']);
+           }
+            $result=mysqli_query($link, $req);
+        }
+         ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Section End -->
+
+  
+
+      <!-- Search model Begin -->
+      <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch"><i class="icon_close"></i></div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
