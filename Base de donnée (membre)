@@ -1,0 +1,77 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : ven. 02 juin 2023 à 17:32
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `kyodai`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `membres`
+--
+
+CREATE TABLE `membres` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(60) NOT NULL,
+  `surname` varchar(60) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `number` int(10) NOT NULL,
+  `section` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `membres`
+--
+
+INSERT INTO `membres` (`id`, `firstname`, `surname`, `email`, `number`, `section`) VALUES
+(1, 'Evariste', 'ii', 'evariste@gmail.com', 552585812, 'Developpement1'),
+(2, 'CHICOU', 'Farell', 'Farell@gmail.com', 56321489, 'developement'),
+(3, 'CHICOU', 'Farell', 'Farell@gmail.com', 123456789, 'creation de contenu'),
+(4, 'ethan', 'ii', 'evariste@gmail.com', 2589634, 'creation de contenu'),
+(5, 'n', 'n', 'ametepemal@gmail.com', 112232222, 'creation de contenu'),
+(6, ' marc', 'eddy', 'eddy@gmail.com', 26546522, 'Developpement'),
+(7, ' adeton', 'louis', 'louis@gmail.com', 87651248, 'Creation de contenu'),
+(8, ' Adjai', 'evra', 'evra@gmail.com', 54627812, 'Artistique'),
+(9, ' David', 'jeanluc', 'jeanluc@gmail.com', 56982347, 'Marketing');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `membres`
+--
+ALTER TABLE `membres`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `membres`
+--
+ALTER TABLE `membres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
