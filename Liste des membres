@@ -1,0 +1,58 @@
+ <?php   
+if (!isset($_REQUEST['id'])){
+
+require('connexion.php');
+//Requete de selection
+$req=sprintf('SELECT * FROM membres');
+//Execution de la requete
+$result=mysqli_query($link,$req);
+//Exploitation des resultats(Affichage)
+
+echo '<form method="POST">'
+.'<table border=1>' 
+    .'<tr><th>id</th><th>Firstname</th><th>Surname</th><th>Email</th><th>Number</th><th>Section</th></tr>';
+ }
+ else
+{
+    //on veut procéder à des suppressions;
+    foreach($_REQUEST['id'] as $id){
+        $req=sprintf("delete FROM membres where id='%d' ",$id);
+        $result=mysqli_query($link, $req);
+    }
+    
+}
+while($ligne=mysqli_fetch_assoc($result)){
+    echo '<tr>';
+    echo '<td>'
+    ."<input type='checkbox' name='id[]' value='".$ligne['id'] ."'>"
+    .'</td>'
+.'<td>'.$ligne['firstname'].'</td>'
+.'<td>'.$ligne['surname'].'</td>'
+.'<td>'.$ligne['email'].'</td>'
+.'<td>'.$ligne['number'].'</td>'
+.'<td>'.$ligne['section'].'</td>'
+.'<td colspan=7><button type="submit">Modifier</button></td></br>'
+.'<td colspan=7><button type="submit">Supprimer</button></td></br>'
+.'</tr>';        
+
+
+}
+
+echo '</table>'. '</form>';
+
+ 
+{
+    //var_dump($_REQUEST['input__item']);
+    //connexion au serveur de base de données
+   // require('connexion.php');
+    //on parcours le tableau des cases cochées
+    //et on supprime les enregistrements correspondants
+    /*foreach($_REQUEST['id'] as $x){
+    $req=sprintf("DELETE FROM membres where id='%d'",$x);
+    //exécution de la requete
+    $result=mysqli_query($link,$req);
+    //redirection ()
+    }*/
+}
+?>
+    
