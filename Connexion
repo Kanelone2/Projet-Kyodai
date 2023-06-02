@@ -1,0 +1,8 @@
+    <?php
+     //pour se connecter au serveur
+    $host='localhost';
+    $user='root';
+    $passw='';
+    $bdd='Kyodai';
+    $link=mysqli_connect($host,$user,$passw,$bdd) or die('impossible de se connecter');
+    ?>
